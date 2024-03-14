@@ -1,3 +1,4 @@
+#tompo copy
 { pkgs, config, ... }: {
   programs.rofi = {
     enable = true;
