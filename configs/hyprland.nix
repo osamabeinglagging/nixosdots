@@ -2,6 +2,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      exec-once = [
+        "waybar"
+      ];
       bind = [
         "SUPER, Q, exec, kitty"
         "SUPER, C, killactive"
@@ -10,6 +13,7 @@
         "SUPER, right, movefocus, r"
         "SUPER, up, movefocus, u"
         "SUPER, down, movefocus, d"
+        "SUPER, space, exec, pkill rofi || rofi -show drun"
       ] ++ (
         builtins.concatLists(builtins.genList(
           x: let
@@ -29,7 +33,7 @@
         "SUPER, mouse:273, resizeWindow"
       ];
 
-      monitor = ",1440x900,auto,1";
+      monitor = ",1440x900,0x0,1";
       
       input = {
         kb_layout = "us";

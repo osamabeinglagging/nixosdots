@@ -3,6 +3,8 @@
     ../../configs/kitty.nix
     ../../configs/hyprland.nix
     ../../configs/nvim.nix
+    ../../configs/waybar.nix
+    ../../configs/rofi.nix
   ];
   home.username = "liquid";
   home.homeDirectory = "/home/liquid";
@@ -12,8 +14,8 @@
   home.packages = with pkgs; [
     python3
     kitty-themes
-#    nerdfonts
     (nerdfonts.override {fonts = ["RobotoMono"];})
+    hyprpicker
     git
     gh
     brave
@@ -23,6 +25,8 @@
 #    jdk8
     jdk17
     wl-clipboard
+    pulseaudio
+    sway
   ] ++
     (with python3Packages; [
       pynput
