@@ -23,12 +23,7 @@
       package = (pkgs.catppuccin-gtk.override { accents = [ "mauve" ]; variant = "mocha"; });
       name = "Catppuccin-Mocha-Mauve";
     };
-#    cursorTheme = {
-#      name = "Bibata-Modern-Ice";
-#      package = pkgs.bibata-cursors;
-#      size = 16;
-#    };
-    iconTheme = {
+   iconTheme = {
       name = "Adwaita";
       package = pkgs.gnome.adwaita-icon-theme;
     };
@@ -50,6 +45,7 @@
     wl-clipboard
     pulseaudio
     swww
+    grim slurp
   ] ++
     (with python3Packages; [
       pynput

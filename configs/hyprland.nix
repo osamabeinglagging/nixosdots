@@ -11,6 +11,8 @@
         "SUPER, up, movefocus, u"
         "SUPER, down, movefocus, d"
         "SUPER, space, exec, pkill rofi || rofi -show drun"
+        "SUPER SHIFT, s, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+        ", Print, exec, grim - | wl-copy"
       ] ++ (
         builtins.concatLists(builtins.genList(
           x: let
