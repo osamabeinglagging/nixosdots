@@ -2,9 +2,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      exec-once = [
-        "waybar"
-      ];
       bind = [
         "SUPER, Q, exec, kitty"
         "SUPER, C, killactive"
@@ -82,9 +79,9 @@
         preserve_split = true;
       };
 
-      master = {};
-
-
+      exec-once = [
+        "sleep 2; waybar"
+      ];
     };
   };
 }

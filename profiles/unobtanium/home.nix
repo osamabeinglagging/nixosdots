@@ -8,8 +8,24 @@
   ];
   home.username = "liquid";
   home.homeDirectory = "/home/liquid";
-
   home.stateVersion = "23.11";
+  
+#  gtk = {
+#    enable = true;
+#    theme = {
+#      name = "Catppuccin-Mocha-Mauve";
+#      package = (pkgs.catppuccin-gtk.override { accents = [ "mauve" ]; variant = "mocha"; });
+#    };
+#    cursorTheme = {
+#      name = "Bibata-Modern-Ice";
+#      package = pkgs.bibata-cursors;
+#      size = 16;
+#    };
+#    iconTheme = {
+#      name = "Adwaita";
+#      package = pkgs.gnome.adwaita-icon-theme;
+#    };
+#  };
 
   home.packages = with pkgs; [
     python3

@@ -1,3 +1,4 @@
+# tompo rice
 { pkgs, config, ... }: {
   programs.waybar = {
     enable = true;
@@ -10,17 +11,13 @@
       passthrough = false;
       gtk-layer-shell = true;
 
-      modules-left = [ "custom/padd" "custom/l_end" "custom/power" "custom/r_end" "custom/l_end" "wlr/taskbar" "custom/r_end" "custom/padd" ];
-      modules-center = [ "custom/padd" "custom/l_end" "clock" "custom/r_end" "custom/padd" ];
-#      modules-right = [ "custom/padd" "custom/l_end" "tray" "custom/r_end" "custom/l_end" "network" "pulseaudio" "custom/r_end" "custom/padd" ];
-      modules-right = ["custom/l_end" "network" "pulseaudio" "custom/r_end" "custom/padd"];
-#      "custom/power" = { 
-#      format = " {}";
-#      on-click = "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Suspend' 'swaymsg exec systemctl suspend' -b 'shutdown' 'systemctl shutdown'"; };
+      modules-left = [ "custom/padd" "custom/l_end" "custom/power" "custom/r_end" "custom/l_end" "wlr/taskbar" "custom/r_end"];
+      modules-center = [ "custom/l_end" "clock" "custom/r_end"];
+      modules-right = [ "custom/l_end" "network" "pulseaudio" "custom/r_end" "custom/padd" ];
 
       "custom/power" = {
           format = " ";
-          exec = "echo ; echo  logout";
+          exec = "echo ; echo Shutdown";
           on-click = "shutdown -h now";
           interval = 86400;
           tooltip = true;
@@ -59,11 +56,6 @@
               on-scroll-down = "shift_down";
           };
       };
- 
-      tray = {
-          icon-size = 18;
-          spacing = 5;
-      };
 
       network = {
           format-ethernet = "󱘖  Wired";
@@ -77,26 +69,10 @@
           format = "{icon} {volume}";
           format-muted = "󰟎 0";
           on-click = "pavucontrol -t 3";
-#          on-click-middle = "~/.config/hypr/scripts/volumecontrol.sh -o m";
-#          on-scroll-up = "~/.config/hypr/scripts/volumecontrol.sh -o i";
-#          on-scroll-down = "~/.config/hypr/scripts/volumecontrol.sh -o d";
           tooltip-format = "{icon} {desc} // {volume}%";
-#          scroll-step = 5;
           format-icons = {
               headset = "󰋋 ";
           };
-      };
-
-      "pulseaudio#microphone" = {
-          format = "{format_source}";
-          format-source = " {volume}";
-          format-source-muted = " 0";
-          on-click = "pavucontrol -t 4";
-          on-click-middle = "~/.config/hypr/scripts/volumecontrol.sh -i m";
-          on-scroll-up = "~/.config/hypr/scripts/volumecontrol.sh -i i";
-          on-scroll-down = "~/.config/hypr/scripts/volumecontrol.sh -i d";
-          tooltip-format = "{format_source} {source_desc} // {source_volume}%";
-          scroll-step = 5;
       };
 
       "custom/l_end" = {
@@ -110,30 +86,6 @@
           interval = "once";
           tooltip = false;
       };
-
-      "custom/sl_end" = {
-          format = " ";
-          interval = "once";
-          tooltip = false;
-      };
-
-      "custom/sr_end" = {
-          format = " ";
-          interval = "once";
-          tooltip = false;
-      };  
-
-      "custom/rl_end" = {
-          format = " ";
-          interval = "once";
-          tooltip = false;
-      }; 
-
-      "custom/rr_end" = {
-          format = " ";
-          interval = "once";
-          tooltip = false;
-      }; 
 
       "custom/padd" = {
           format = "  ";
@@ -211,7 +163,7 @@
 
       #taskbar button {
           box-shadow: none;
-	 text-shadow: none;
+	        text-shadow: none;
           padding: 0px;
           border-radius: 9px;
           margin-top: 3px;
@@ -243,36 +195,15 @@
           transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
       }
 
-      #backlight,
-      #battery,
-      #bluetooth,
-      #custom-cliphist,
-      #custom-picker,
       #clock,
-      #cpu,
-      #custom-gpuinfo,
-      #idle_inhibitor,
-      #language,
-      #memory,
-      #custom-mode,
-      #mpris,
       #network,
       #custom-power,
       #pulseaudio,
-      #custom-spotify,
       #taskbar,
-      #tray,
-      #custom-updates,
-      #custom-wallchange,
-      #custom-wbar,
       #window,
       #workspaces,
       #custom-l_end,
-      #custom-r_end,
-      #custom-sl_end,
-      #custom-sr_end,
-      #custom-rl_end,
-      #custom-rr_end {
+      #custom-r_end {
           color: @main-fg;
           background: @main-bg;
           opacity: 1;
@@ -294,30 +225,6 @@
 
       #custom-l_end {
           border-radius: 22px 0px 0px 22px;
-          margin-left: 9px;
-          padding-left: 3px;
-      }
-
-      #custom-sr_end {
-          border-radius: 0px;
-          margin-right: 9px;
-          padding-right: 3px;
-      }
-
-      #custom-sl_end {
-          border-radius: 0px;
-          margin-left: 9px;
-          padding-left: 3px;
-      }      
-
-      #custom-rr_end {
-          border-radius: 0px 8px 8px 0px;
-          margin-right: 9px;
-          padding-right: 3px;
-      }
-
-      #custom-rl_end {
-          border-radius: 8px 0px 0px 8px;
           margin-left: 9px;
           padding-left: 3px;
       }
