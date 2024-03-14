@@ -1,5 +1,6 @@
 {config, pkgs, ...}:{
   imports = [
+    ../../configs/kitty.nix
     ../../configs/hyprland.nix
     ../../configs/nvim.nix
   ];
@@ -9,7 +10,10 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    kitty
+    python3
+    kitty-themes
+#    nerdfonts
+    (nerdfonts.override {fonts = ["RobotoMono"];})
     git
     gh
     brave
@@ -18,5 +22,10 @@
     vlc
 #    jdk8
     jdk17
-  ];
+    wl-clipboard
+  ] ++
+    (with python3Packages; [
+      pynput
+    ]
+  );
 }
