@@ -45,7 +45,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
+  programs.dconf.enable = true;
   users.users.liquid = {
     isNormalUser = true;
     description = "Liquid";
@@ -53,6 +53,7 @@
     packages = with pkgs; [
     ];
   };
+  services.xserver.displayManager.sddm.theme = "catppuccin-mocha";
   services.xserver.displayManager.sessionPackages = [pkgs.hyprland];
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "23.11";

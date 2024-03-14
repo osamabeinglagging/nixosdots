@@ -80,7 +80,8 @@
       };
 
       exec-once = [
-        "sleep 2; waybar"
+        "swww init & swww img \"../wallpapers/landscape.png\""
+        "sleep 5; waybar"
       ];
     };
   };
