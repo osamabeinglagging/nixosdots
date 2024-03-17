@@ -2,7 +2,7 @@
   imports = [
     ../../configs/kitty.nix
     ../../configs/hyprland.nix
-    ../../configs/nvim.nix
+    ../../configs/neovim.nix
     ../../configs/waybar.nix
     ../../configs/rofi.nix
   ];
@@ -15,6 +15,12 @@
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Ice";
     size = 16;
+  };
+
+  xdg.portal = {
+    enable = true;
+    config = {common = {default = ["gtk"]; }; };
+    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
   };
 
   gtk = {
@@ -31,6 +37,7 @@
 
   home.packages = with pkgs; [
     python3
+    vscode
     kitty-themes
     (nerdfonts.override {fonts = ["RobotoMono"];})
     hyprpicker
@@ -46,9 +53,12 @@
     pulseaudio
     swww
     grim slurp
+    light
+    nodejs
   ] ++
     (with python3Packages; [
       pynput
     ]
   );
+  nixpkgs.config.allowUnfree = true;
 }
