@@ -13,6 +13,10 @@
         "SUPER, space, exec, pkill rofi || rofi -show drun"
         "SUPER SHIFT, s, exec, grim -g \"$(slurp -d)\" - | wl-copy"
         ", Print, exec, grim - | wl-copy"
+        "SUPER SHIFT, right, resizeactive, 10 0"
+        "SUPER SHIFT, left, resizeactive, -10 0"
+        "SUPER SHIFT, up, resizeactive, 0 -10"
+        "SUPER SHIFT, down, resizeactive, 0 10"
       ] ++ (
         builtins.concatLists(builtins.genList(
           x: let

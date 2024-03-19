@@ -36,6 +36,8 @@
   };
 
   home.packages = with pkgs; [
+    lua
+    discord
     python3
     vscode
     kitty-themes
