@@ -16,12 +16,5 @@ vim.opt.shiftround = true
 vim.opt.expandtab = true
 
 vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("n", "\\", ":wa<CR>")
 
--- Map in visual mode
-vim.keymap.set("v", "<C-~>", ":lua require('comment').com()<CR>", { noremap = true, expr = false })
-
--- Map in normal mode
-vim.keymap.set("n", "<C-~>", ":lua require('comment').com()<CR>", { noremap = true, expr = false })
-
--- Map in insert mode
-vim.keymap.set("i", "<C-~>", "<Esc>:lua require('comment').com()<CR>", { noremap = true, expr = false })
